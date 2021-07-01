@@ -1,8 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html">
 
     <h:head>
         <title>JSF Auth Sample</title>
@@ -12,8 +11,9 @@
         <p>Logged user: #{authProfileBean.profile.attributes.get('name')} (#{authProfileBean.profile.attributes.get('email')})</p>
         
         <h:form>
-            <p:dataList value="#{baseBean.itemList}"/>
-            <p:commandButton action="#{baseBean.updateItemList}" update="@form" value="Update List" />
+            <h:outputText value="#{baseBean.itemList.size()}"/>
+            <h:commandButton action="#{baseBean.updateItemList}" value="Update List" />
+            <a href="/app/index.xhtml">link</a>
         </h:form>
     </h:body>
 </html>
