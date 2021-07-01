@@ -3,6 +3,7 @@ package jsf.auth.sample;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import org.pac4j.core.authorization.authorizer.DefaultAuthorizers;
 import org.pac4j.core.client.Clients;
 import org.pac4j.core.config.Config;
 import org.pac4j.jee.filter.CallbackFilter;
@@ -37,7 +38,7 @@ public class AuthConfig implements ServletContextListener {
         callbackFilter.setRenewSession(true);
         filterHelper.addFilterMapping("callbackFilter", callbackFilter, "/callback/*");
         
-        final SecurityFilter oidcFilter = new SecurityFilter(config, "GoogleOidcClient");
+        final SecurityFilter oidcFilter = new SecurityFilter(config, "GoogleOidcClient", DefaultAuthorizers.NONE);
         filterHelper.addFilterMapping("oidcFilter", oidcFilter, "/app/*");
     }
 
