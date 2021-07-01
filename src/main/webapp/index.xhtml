@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>JSF Auth Sample</title>
+    </h:head>
+
+    <h:body>
+        <p>Logged user: #{authProfileBean.profile.attributes.get('name')} (#{authProfileBean.profile.attributes.get('email')})</p>
+        
+        <h:form>
+            <p:dataList value="#{baseBean.itemList}"/>
+            <p:commandButton action="#{baseBean.updateItemList}" update="@form" value="Update List" />
+        </h:form>
+    </h:body>
+</html>
